@@ -424,7 +424,7 @@ function BetSuccessModal({ result, match, onClose, theme }) {
             Bet Placed!
           </h2>
           <p style={{ fontSize: 13, color: "var(--text-secondary)", marginBottom: 20, fontFamily: "var(--font-sans)" }}>
-            Your wager is live on Arc Testnet
+            Your wager is live on {ACTIVE_NETWORK.name}
           </p>
 
           {/* NFT Receipt Card — always dark for contrast */}
@@ -693,7 +693,7 @@ function BetModal({ match, initOutcome, onClose, onSuccess, signer, theme, usdtB
 
               <ShimmerBtn variant="primary" full onClick={place} disabled={!outcome || status === "approving" || status === "betting"}>
                 {status === "approving" && <><RefreshCw size={14} className="animate-spin" /> Approving USDC…</>}
-                {status === "betting" && <><RefreshCw size={14} className="animate-spin" /> Placing on Arc Testnet…</>}
+                {status === "betting" && <><RefreshCw size={14} className="animate-spin" /> Placing on {ACTIVE_NETWORK.name}…</>}
                 {status !== "approving" && status !== "betting" && <><Zap size={14} /> {outcome ? `Bet $${amount} on ${OPT_LABELS[outcome]}` : "Select an outcome"}</>}
               </ShimmerBtn>
             </>
@@ -1534,7 +1534,7 @@ function MatchesTab({
         <div className="empty-state arc-card">
           <div className="empty-state-icon"><CircleDot size={22} /></div>
           <p className="empty-state-title">No markets open yet</p>
-          <p className="empty-state-desc">Deploy contracts on Arc Testnet or browse upcoming fixtures below to see live sports data.</p>
+          <p className="empty-state-desc">Deploy contracts on {ACTIVE_NETWORK.name} or browse upcoming fixtures below to see live sports data.</p>
         </div>
       ) : (
         <>
@@ -1869,7 +1869,7 @@ function AgentTab({ address, signer, matches, usdtBalance, refetchUsdt, onNotif,
       onNotif("Authorize the agent first before running a cycle!", "error");
       return;
     }
-    addLog("[Trigger] Initiating manual agent cycle run on Arc Testnet...", "var(--terminal-primary)");
+    addLog(`[Trigger] Initiating manual agent cycle run on ${ACTIVE_NETWORK.name}...`, "var(--terminal-primary)");
     setRunningCycle(true);
     // Start animated spinner immediately — terminal never looks frozen
     startSpinner("Submitting to agent executor… analyzing markets");
@@ -2028,7 +2028,7 @@ function AgentTab({ address, signer, matches, usdtBalance, refetchUsdt, onNotif,
               </div>
               <div>
                 <h2 style={{ fontSize: 20, fontWeight: 700, letterSpacing: -0.4, lineHeight: 1.1, margin: 0 }}>AI Betting Agent</h2>
-                <p style={{ fontSize: 12, color: "var(--text-secondary)", margin: 0, marginTop: 3 }}>Autonomous execution · Arc Testnet</p>
+                <p style={{ fontSize: 12, color: "var(--text-secondary)", margin: 0, marginTop: 3 }}>Autonomous execution · {ACTIVE_NETWORK.name}</p>
               </div>
             </div>
           </div>
@@ -2447,7 +2447,7 @@ function AgentTab({ address, signer, matches, usdtBalance, refetchUsdt, onNotif,
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
             <Globe size={11} style={{ color: "var(--text-secondary)" }} />
-            <span style={{ fontSize: 11, color: "var(--text-secondary)" }}>Arc Testnet</span>
+            <span style={{ fontSize: 11, color: "var(--text-secondary)" }}>{ACTIVE_NETWORK.name}</span>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <span style={{ fontSize: 11, color: "var(--text-secondary)", fontFamily: "'JetBrains Mono', monospace" }}>Latency: <span style={{ color: "var(--green)" }}>12ms</span></span>
@@ -3820,7 +3820,7 @@ export default function Home() {
               <div className="swap-warning-content">
                 <AlertCircle className="swap-warning-icon" size={18} />
                 <span className="swap-warning-text">
-                  Your wallet needs USDC on Arc Testnet to place bets.
+                  Your wallet needs USDC on {ACTIVE_NETWORK.name} to place bets.
                   <a
                     href="https://faucet.circle.com/"
                     target="_blank"

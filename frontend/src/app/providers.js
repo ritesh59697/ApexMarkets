@@ -17,7 +17,7 @@ export function useWalletContext() {
 const arcMainnet = {
   ...defineChain({
     id: 5042,
-    name: "Arc",
+    name: "Arc Mainnet",
     nativeCurrency: { name: "USD Coin", symbol: "USDC", decimals: 6 },
     rpcUrls: {
       default: { http: ["https://rpc.mainnet.arc.io"] },
@@ -28,8 +28,8 @@ const arcMainnet = {
     },
     testnet: false,
   }),
-  iconUrl: "https://assets.coingecko.com/coins/images/6319/small/usdc.png",
-  iconBackground: "#004fd2",
+  iconUrl: "/arc-logo.png",
+  iconBackground: "#ffffff",
 };
 
 const arcTestnet = {
@@ -46,8 +46,8 @@ const arcTestnet = {
     },
     testnet: true,
   }),
-  iconUrl: "https://assets.coingecko.com/coins/images/6319/small/usdc.png",
-  iconBackground: "#4f46e5",
+  iconUrl: "/arc-logo.png",
+  iconBackground: "#ffffff",
 };
 
 const config = getDefaultConfig({

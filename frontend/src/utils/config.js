@@ -13,7 +13,7 @@ export const ARC_TESTNET = {
 export const ARC_MAINNET = {
   chainId: 5042,
   chainIdHex: "0x13b2",
-  name: "Arc",
+  name: "Arc Mainnet",
   rpcUrl: "https://rpc.mainnet.arc.io",
   explorerUrl: "https://explorer.arc.io",
   nativeCurrency: { name: "USD Coin", symbol: "USDC", decimals: 6 },

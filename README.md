@@ -14,6 +14,7 @@ ApexMarkets is a fully on-chain, peer-to-peer prediction protocol built on **Arc
 ## 🔗 Links & Resources
 
 - 🌐 **Live DApp**: [https://arc-markets-nine.vercel.app](https://arc-markets-nine.vercel.app)
+- ⚡ **Arc Studio Project**: [https://studio.arc.io/app/5442b287-658a-4375-9636-033efdde29d8](https://studio.arc.io/app/5442b287-658a-4375-9636-033efdde29d8)
 - 🎬 **Demo Video**: [Watch Walkthrough on YouTube](https://youtu.be/2w3pnFuFAhI)
 - 📄 **Whitepaper**: [WHITEPAPER.md](./WHITEPAPER.md)
 

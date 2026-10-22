@@ -7,8 +7,8 @@ const { ethers } = hre;
  */
 async function main() {
   const [deployer] = await ethers.getSigners();
-  console.log("Deploying with:", deployer.address);
-  console.log("Balance:", ethers.formatUnits(await ethers.provider.getBalance(deployer.address), 6), "USDC");
+  const rawBalance = await ethers.provider.getBalance(deployer.address);
+  console.log("Balance:", ethers.formatEther(rawBalance), "USDC");
 
   // Arc uses USDC as native gas and exposes USDC at this ERC-20 predeploy.
   let USDC_ADDRESS = process.env.USDC_ADDRESS || "0x3600000000000000000000000000000000000000";
@@ -49,11 +49,8 @@ async function main() {
   const day = 86400;
 
   const matches = [
-    { home: "Brazil", away: "Mexico", id: "SPORT_WC26_001", kickoff: now + day * 1 },
-    { home: "Argentina", away: "Germany", id: "SPORT_WC26_002", kickoff: now + day * 2 },
-    { home: "BTC Above $105K", away: "BTC Below $102K", id: "CRYPTO_BTC_24H_001", kickoff: now + 3600 },
-    { home: "ETH Outperforms SOL", away: "SOL Outperforms ETH", id: "CRYPTO_ETH_SOL_001", kickoff: now + 7200 },
-    { home: "AI Tokens", away: "Meme Tokens", id: "CRYPTO_SECTOR_001", kickoff: now + day },
+    { home: "Brazil", away: "Argentina", id: "SPORT_WC26_001", kickoff: now + day * 3 },
+    { home: "BTC Above $105K", away: "BTC Below $102K", id: "CRYPTO_BTC_24H_001", kickoff: now + day },
   ];
 
   for (const m of matches) {

@@ -55,8 +55,10 @@ yarn-error.log*
 # IDEs and Editors
 .vscode/
 .idea/
+.claude/
 *.swp
 *.swo
+package-lock.json
 
 # vercel
 .vercel

@@ -14,6 +14,20 @@ export function useWalletContext() {
   return useContext(WalletContext);
 }
 
+const arcMainnet = defineChain({
+  id: 5042,
+  name: "Arc",
+  nativeCurrency: { name: "USD Coin", symbol: "USDC", decimals: 6 },
+  rpcUrls: {
+    default: { http: ["https://rpc.mainnet.arc.io"] },
+    public: { http: ["https://rpc.mainnet.arc.io"] },
+  },
+  blockExplorers: {
+    default: { name: "Arc Explorer", url: "https://explorer.arc.io" },
+  },
+  testnet: false,
+});
+
 const arcTestnet = defineChain({
   id: 5042002,
   name: "Arc Testnet",
@@ -31,7 +45,7 @@ const arcTestnet = defineChain({
 const config = getDefaultConfig({
   appName: "ApexMarkets",
   projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || "3a8170812b534d0ff9ec4b11c0ac5ba5",
-  chains: [arcTestnet],
+  chains: [arcMainnet, arcTestnet],
   ssr: true,
 });
 

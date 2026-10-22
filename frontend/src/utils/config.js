@@ -10,11 +10,22 @@ export const ARC_TESTNET = {
   nativeCurrency: { name: "USD Coin", symbol: "USDC", decimals: 6 },
 };
 
-export const ACTIVE_NETWORK = ARC_TESTNET;
+export const ARC_MAINNET = {
+  chainId: 5042,
+  chainIdHex: "0x13b2",
+  name: "Arc",
+  rpcUrl: "https://rpc.mainnet.arc.io",
+  explorerUrl: "https://explorer.arc.io",
+  nativeCurrency: { name: "USD Coin", symbol: "USDC", decimals: 6 },
+};
+
+export const ACTIVE_NETWORK =
+  process.env.NEXT_PUBLIC_ARC_NETWORK === "testnet" ? ARC_TESTNET : ARC_MAINNET;
 
 const RPC_ENDPOINTS = [
   process.env.NEXT_PUBLIC_ARC_RPC_URL,
-  "https://rpc.testnet.arc.network",
+  ACTIVE_NETWORK.rpcUrl,
+  "https://rpc.mainnet.arc.io",
 ].filter((url, index, self) => url && self.indexOf(url) === index);
 
 let activeRpcUrl = RPC_ENDPOINTS[0];
@@ -55,8 +66,8 @@ export async function runWithRpcFallback(fn) {
 
 // Defaults from deployment.json so the UI works without .env.local
 const DEPLOYED = {
-  PREDICTION_MARKET: "0xbE2bf8f1c34a0517Dfd8732d4b8A82056DB539B4",
-  BET_RECEIPT_NFT: "0xEfDdb2C5788E426d0AE18a62B74a84A8c86972dE",
+  PREDICTION_MARKET: "0xEfDdb2C5788E426d0AE18a62B74a84A8c86972dE",
+  BET_RECEIPT_NFT: "0x0CB12e414Ff265Ee9DAdB2C5Ec3beE6A93ceFd3d",
   USDC: "0x3600000000000000000000000000000000000000",
 };
 

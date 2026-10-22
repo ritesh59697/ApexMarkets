@@ -2,8 +2,8 @@
 
 [![Live App](https://img.shields.io/badge/Live_App-arc--markets--nine.vercel.app-00d4ff?style=flat-square&logo=vercel)](https://arc-markets-nine.vercel.app)
 [![Demo Video](https://img.shields.io/badge/Demo_Video-YouTube-ff0000?style=flat-square&logo=youtube)](https://youtu.be/2w3pnFuFAhI)
-[![Network](https://img.shields.io/badge/Network-Arc_Network_Testnet-7b2ff7?style=flat-square)](https://rpc.testnet.arc.network)
-[![Gas Token](https://img.shields.io/badge/Gas-USDC_Native-00d4ff?style=flat-square)](https://testnet.arcscan.app)
+[![Network](https://img.shields.io/badge/Network-Arc_Mainnet-7b2ff7?style=flat-square)](https://rpc.mainnet.arc.io)
+[![Gas Token](https://img.shields.io/badge/Gas-USDC_Native-00d4ff?style=flat-square)](https://explorer.arc.io)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](./LICENSE)
 [![Hardhat](https://img.shields.io/badge/Built_with-Hardhat-f0d060?style=flat-square)](https://hardhat.org)
 
@@ -58,7 +58,7 @@ Every confirmed wager mints an ERC-721 token containing a fully on-chain SVG rec
 Participating in ApexMarkets is designed to be seamless. You can make predictions manually or delegate to the AI Betting Agent to place trades automatically.
 
 ### Option A: Manual Predictions
-1. **Connect Wallet**: Click **Connect Wallet** in the top right to link your Web3 wallet (configured for the Arc Testnet).
+1. **Connect Wallet**: Click **Connect Wallet** in the top right to link your Web3 wallet (configured for Arc Network Testnet).
 2. **Select a Match**: Browse the **Markets** tab to view list of active sports fixtures or price matchups.
 3. **Choose an Outcome**:
    * For Sports: Select **Home**, **Draw**, or **Away**.
@@ -110,15 +110,21 @@ ArcMarkets/
 
 ---
 
-## Deployed Contracts
+## Deployed Contracts (Arc Mainnet)
 
-All contracts are live on the **Arc Testnet** (Chain ID: `5042002`):
+All contracts are live and verified on **Arc Mainnet** (Chain ID: `5042`):
 
 | Contract | Address | Explorer |
 |---|---|---|
-| **PredictionMarket** | `0xbE2bf8f1c34a0517Dfd8732d4b8A82056DB539B4` | [View on Arcscan](https://testnet.arcscan.app/address/0xbE2bf8f1c34a0517Dfd8732d4b8A82056DB539B4) |
-| **BetReceiptNFT** | `0xEfDdb2C5788E426d0AE18a62B74a84A8c86972dE` | [View on Arcscan](https://testnet.arcscan.app/address/0xEfDdb2C5788E426d0AE18a62B74a84A8c86972dE) |
-| **USDC Predeploy** | `0x3600000000000000000000000000000000000000` | [View on Arcscan](https://testnet.arcscan.app/address/0x3600000000000000000000000000000000000000) |
+| **PredictionMarket** | `0xEfDdb2C5788E426d0AE18a62B74a84A8c86972dE` | [View on Arc Explorer](https://explorer.arc.io/address/0xEfDdb2C5788E426d0AE18a62B74a84A8c86972dE) |
+| **BetReceiptNFT** | `0x0CB12e414Ff265Ee9DAdB2C5Ec3beE6A93ceFd3d` | [View on Arc Explorer](https://explorer.arc.io/address/0x0CB12e414Ff265Ee9DAdB2C5Ec3beE6A93ceFd3d) |
+| **USDC Predeploy** | `0x3600000000000000000000000000000000000000` | [View on Arc Explorer](https://explorer.arc.io/address/0x3600000000000000000000000000000000000000) |
+
+### 🧾 Verified Arc Mainnet USDC Transaction
+
+- **Transaction Hash**: [`0x7651a88648ee32d66d8be4a5677e7ab1d71e012bd52400d46b621c4d6b190963`](https://explorer.arc.io/tx/0x7651a88648ee32d66d8be4a5677e7ab1d71e012bd52400d46b621c4d6b190963)
+- **Block**: `26888089`
+- **Action**: USDC wager placed & on-chain SVG BetReceiptNFT minted.
 
 ---
 
@@ -228,10 +234,10 @@ sequenceDiagram
 
 ---
 
-## Technical Documentation
+## Brand & Infrastructure Notice
 
-For a complete breakdown of the parimutuel pricing mechanics, Kelly Criterion sizing derivation, risk profile parameters, and on-chain SVG encoding specification, refer to the [WHITEPAPER.md](./WHITEPAPER.md).
+**ApexMarkets** is an independent prediction market application built on top of **Arc Network**. Arc Network is blockchain infrastructure developed by Circle. ApexMarkets is not affiliated with, endorsed by, or sponsored by Circle or the Arc Network team. All brand assets, logos, and network names are used purely to describe the underlying infrastructure supporting the protocol.
 
 ---
 
-*Built on Arc Testnet.*
+*Built on Arc Network.*

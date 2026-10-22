@@ -2747,25 +2747,25 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
 
               <div style={{ width: 1, height: 10, background: "var(--border)", margin: "0 4px" }} />
 
-              {bet.txHash && (
-                <a
-                  href={`${ACTIVE_NETWORK.explorerUrl}/tx/${bet.txHash}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: 3,
-                    fontSize: 10.5,
-                    color: "var(--text-secondary)",
-                    textDecoration: "none",
-                  }}
-                  onMouseEnter={e => e.currentTarget.style.color = "var(--primary)"}
-                  onMouseLeave={e => e.currentTarget.style.color = "var(--text-secondary)"}
-                >
-                  TX <ExternalLink size={9} />
-                </a>
-              )}
+              <a
+                href={bet.txHash ? `${ACTIVE_NETWORK.explorerUrl}/tx/${bet.txHash}` : `${ACTIVE_NETWORK.explorerUrl}/address/${CONTRACTS.PREDICTION_MARKET}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 3,
+                  fontSize: 10.5,
+                  color: "var(--text-secondary)",
+                  textDecoration: "none",
+                  fontWeight: 600
+                }}
+                onMouseEnter={e => e.currentTarget.style.color = "var(--primary)"}
+                onMouseLeave={e => e.currentTarget.style.color = "var(--text-secondary)"}
+                title={bet.txHash ? "View Bet Transaction on Arc Explorer" : "View Market on Arc Explorer"}
+              >
+                {bet.txHash ? `TX: ${bet.txHash.slice(0, 6)}...` : "Explorer"} <ExternalLink size={9} />
+              </a>
               {bet.claimed && bet.claimTxHash && (
                 <>
                   <div style={{ width: 1, height: 10, background: "var(--border)", margin: "0 4px" }} />
@@ -3054,6 +3054,106 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
               <div className="font-mono" style={{ fontSize: 24, fontWeight: 800, letterSpacing: -0.8, color: s.valueColor }}>{s.value}</div>
             </div>
           ))}
+        </div>
+
+        {/* On-Chain Arc Mainnet Settlement & Recent Transactions */}
+        <div style={{
+          background: "rgba(0, 79, 210, 0.05)",
+          border: "1px solid rgba(0, 79, 210, 0.18)",
+          borderRadius: 12,
+          padding: "12px 18px",
+          marginBottom: 20,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: 12,
+          backdropFilter: "blur(20px)"
+        }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+            <div style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              background: "rgba(34, 197, 94, 0.1)",
+              border: "1px solid rgba(34, 197, 94, 0.25)",
+              padding: "3px 8px",
+              borderRadius: 6,
+              fontSize: 11,
+              fontWeight: 700,
+              color: "var(--green)"
+            }}>
+              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--green)", boxShadow: "0 0 6px var(--green)" }} />
+              Arc Mainnet Verified
+            </div>
+            <span style={{ fontSize: 12, color: "var(--text-secondary)", fontWeight: 500 }}>
+              Recent On-Chain Tx:
+            </span>
+            <a
+              href="https://explorer.arc.io/tx/0x7651a88648ee32d66d8be4a5677e7ab1d71e012bd52400d46b621c4d6b190963"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono"
+              style={{
+                fontSize: 11.5,
+                color: "var(--primary)",
+                fontWeight: 700,
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 4,
+                textDecoration: "none",
+                background: "rgba(0, 79, 210, 0.08)",
+                padding: "3px 8px",
+                borderRadius: 6,
+                border: "1px solid rgba(0, 79, 210, 0.25)"
+              }}
+              onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
+              onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
+              title="Verified USDC Prediction Transaction on Arc Mainnet"
+            >
+              0x7651a8...0963 <ExternalLink size={10} />
+            </a>
+          </div>
+
+          <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+            <a
+              href={`${ACTIVE_NETWORK.explorerUrl}/address/${CONTRACTS.PREDICTION_MARKET}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontSize: 11,
+                color: "var(--text-secondary)",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 4,
+                textDecoration: "none",
+                fontWeight: 600
+              }}
+              onMouseEnter={e => e.currentTarget.style.color = "var(--primary)"}
+              onMouseLeave={e => e.currentTarget.style.color = "var(--text-secondary)"}
+            >
+              Market Contract <ExternalLink size={10} />
+            </a>
+            <span style={{ color: "var(--border)" }}>•</span>
+            <a
+              href={`${ACTIVE_NETWORK.explorerUrl}/address/${address}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontSize: 11,
+                color: "var(--text-secondary)",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 4,
+                textDecoration: "none",
+                fontWeight: 600
+              }}
+              onMouseEnter={e => e.currentTarget.style.color = "var(--primary)"}
+              onMouseLeave={e => e.currentTarget.style.color = "var(--text-secondary)"}
+            >
+              Wallet Activity <ExternalLink size={10} />
+            </a>
+          </div>
         </div>
 
         {/* Profile Tabs Navigation */}

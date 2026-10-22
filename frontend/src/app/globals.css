@@ -1787,3 +1787,29 @@ nextjs-portal {
     letter-spacing: 0.02em !important;
   }
 }
+
+/* ─── RainbowKit Modal & Network Switcher Custom Styling ─────────────────── */
+[data-rk] [role="dialog"] {
+  font-family: var(--font-sans) !important;
+  border-radius: 20px !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  overflow: hidden !important;
+}
+
+[data-rk] h1 {
+  font-family: var(--font-sans) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+}
+
+[data-rk] button {
+  font-family: var(--font-sans) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+[data-rk] button:hover {
+  transform: translateY(-1px);
+}

@@ -14,33 +14,41 @@ export function useWalletContext() {
   return useContext(WalletContext);
 }
 
-const arcMainnet = defineChain({
-  id: 5042,
-  name: "Arc",
-  nativeCurrency: { name: "USD Coin", symbol: "USDC", decimals: 6 },
-  rpcUrls: {
-    default: { http: ["https://rpc.mainnet.arc.io"] },
-    public: { http: ["https://rpc.mainnet.arc.io"] },
-  },
-  blockExplorers: {
-    default: { name: "Arc Explorer", url: "https://explorer.arc.io" },
-  },
-  testnet: false,
-});
+const arcMainnet = {
+  ...defineChain({
+    id: 5042,
+    name: "Arc",
+    nativeCurrency: { name: "USD Coin", symbol: "USDC", decimals: 6 },
+    rpcUrls: {
+      default: { http: ["https://rpc.mainnet.arc.io"] },
+      public: { http: ["https://rpc.mainnet.arc.io"] },
+    },
+    blockExplorers: {
+      default: { name: "Arc Explorer", url: "https://explorer.arc.io" },
+    },
+    testnet: false,
+  }),
+  iconUrl: "https://assets.coingecko.com/coins/images/6319/small/usdc.png",
+  iconBackground: "#004fd2",
+};
 
-const arcTestnet = defineChain({
-  id: 5042002,
-  name: "Arc Testnet",
-  nativeCurrency: { name: "USD Coin", symbol: "USDC", decimals: 6 },
-  rpcUrls: {
-    default: { http: ["https://rpc.testnet.arc.network"] },
-    public: { http: ["https://rpc.testnet.arc.network"] },
-  },
-  blockExplorers: {
-    default: { name: "Arcscan", url: "https://testnet.arcscan.app" },
-  },
-  testnet: true,
-});
+const arcTestnet = {
+  ...defineChain({
+    id: 5042002,
+    name: "Arc Testnet",
+    nativeCurrency: { name: "USD Coin", symbol: "USDC", decimals: 6 },
+    rpcUrls: {
+      default: { http: ["https://rpc.testnet.arc.network"] },
+      public: { http: ["https://rpc.testnet.arc.network"] },
+    },
+    blockExplorers: {
+      default: { name: "Arcscan", url: "https://testnet.arcscan.app" },
+    },
+    testnet: true,
+  }),
+  iconUrl: "https://assets.coingecko.com/coins/images/6319/small/usdc.png",
+  iconBackground: "#4f46e5",
+};
 
 const config = getDefaultConfig({
   appName: "ApexMarkets",
@@ -159,10 +167,29 @@ export function Providers({ children }) {
     return () => observer.disconnect();
   }, []);
 
+  const customLightTheme = lightTheme({
+    accentColor: "#004fd2",
+    accentColorForeground: "#ffffff",
+    borderRadius: "large",
+    fontStack: "system",
+    overlayBlur: "small",
+  });
+
+  const customDarkTheme = darkTheme({
+    accentColor: "#2979ff",
+    accentColorForeground: "#ffffff",
+    borderRadius: "large",
+    fontStack: "system",
+    overlayBlur: "small",
+  });
+
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider theme={currentTheme === "dark" ? darkTheme() : lightTheme()}>
+        <RainbowKitProvider
+          theme={currentTheme === "dark" ? customDarkTheme : customLightTheme}
+          modalSize="compact"
+        >
           <WalletBridge>
             {children}
           </WalletBridge>

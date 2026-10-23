@@ -2751,29 +2751,11 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
                 href={bet.txHash ? `${ACTIVE_NETWORK.explorerUrl}/tx/${bet.txHash}` : `${ACTIVE_NETWORK.explorerUrl}/address/${CONTRACTS.PREDICTION_MARKET}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="btn-chip"
                 style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 4,
                   fontSize: 10.5,
-                  color: "#cbd5e1",
-                  background: "rgba(255, 255, 255, 0.08)",
-                  border: "1px solid rgba(255, 255, 255, 0.16)",
                   padding: "3px 8px",
-                  borderRadius: 6,
-                  textDecoration: "none",
-                  fontWeight: 700,
-                  transition: "all 0.15s ease"
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.color = "#ffffff";
-                  e.currentTarget.style.borderColor = "var(--primary)";
-                  e.currentTarget.style.background = "rgba(41, 121, 255, 0.25)";
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.color = "#cbd5e1";
-                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.16)";
-                  e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
+                  borderRadius: 6
                 }}
                 title={bet.txHash ? "View Bet Transaction on Arc Explorer" : "View Market on Arc Explorer"}
               >
@@ -3069,16 +3051,16 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
               display: "inline-flex",
               alignItems: "center",
               gap: 6,
-              background: "rgba(34, 197, 94, 0.15)",
-              border: "1px solid rgba(34, 197, 94, 0.45)",
+              background: "var(--success-bg)",
+              border: "1px solid var(--success-border)",
               padding: "4px 10px",
               borderRadius: 8,
               fontSize: 11.5,
               fontWeight: 800,
-              color: "#4ade80",
+              color: "var(--success-text)",
               letterSpacing: "0.02em"
             }}>
-              <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#4ade80", boxShadow: "0 0 8px #4ade80" }} />
+              <span style={{ width: 7, height: 7, borderRadius: "50%", background: "var(--success-text)", boxShadow: "0 0 8px var(--success-border)" }} />
               Arc Mainnet Verified
             </div>
             <span style={{ fontSize: 13, color: "var(--text-primary)", fontWeight: 700 }}>
@@ -3091,24 +3073,16 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
               className="font-mono"
               style={{
                 fontSize: 12,
-                color: "#60a5fa",
+                color: "var(--primary)",
                 fontWeight: 800,
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 5,
                 textDecoration: "none",
-                background: "rgba(59, 130, 246, 0.15)",
+                background: "var(--primary-alpha-bg)",
                 padding: "4px 10px",
                 borderRadius: 8,
-                border: "1px solid rgba(59, 130, 246, 0.45)"
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.background = "rgba(59, 130, 246, 0.25)";
-                e.currentTarget.style.color = "#93c5fd";
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.background = "rgba(59, 130, 246, 0.15)";
-                e.currentTarget.style.color = "#60a5fa";
+                border: "1px solid var(--primary-alpha-border)"
               }}
               title="Verified USDC Prediction Transaction on Arc Mainnet"
             >
@@ -3121,28 +3095,7 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
               href={`${ACTIVE_NETWORK.explorerUrl}/address/${CONTRACTS.PREDICTION_MARKET}`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                fontSize: 11.5,
-                color: "#cbd5e1",
-                background: "rgba(255, 255, 255, 0.06)",
-                border: "1px solid var(--border)",
-                padding: "5px 12px",
-                borderRadius: 8,
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 5,
-                textDecoration: "none",
-                fontWeight: 700,
-                transition: "all 0.15s ease"
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.background = "rgba(255, 255, 255, 0.12)";
-                e.currentTarget.style.color = "#ffffff";
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.background = "rgba(255, 255, 255, 0.06)";
-                e.currentTarget.style.color = "#cbd5e1";
-              }}
+              className="btn-chip"
             >
               Market Contract <ExternalLink size={11} />
             </a>
@@ -3150,28 +3103,7 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
               href={`${ACTIVE_NETWORK.explorerUrl}/address/${address}`}
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                fontSize: 11.5,
-                color: "#cbd5e1",
-                background: "rgba(255, 255, 255, 0.06)",
-                border: "1px solid var(--border)",
-                padding: "5px 12px",
-                borderRadius: 8,
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 5,
-                textDecoration: "none",
-                fontWeight: 700,
-                transition: "all 0.15s ease"
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.background = "rgba(255, 255, 255, 0.12)";
-                e.currentTarget.style.color = "#ffffff";
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.background = "rgba(255, 255, 255, 0.06)";
-                e.currentTarget.style.color = "#cbd5e1";
-              }}
+              className="btn-chip"
             >
               Wallet Activity <ExternalLink size={11} />
             </a>
@@ -3258,15 +3190,15 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
             <div style={{
               display: "flex",
               gap: 5,
-              background: "rgba(6, 14, 32, 0.95)",
-              border: "1px solid rgba(255, 255, 255, 0.16)",
+              background: "var(--surface-container)",
+              border: "1px solid var(--border)",
               padding: 4,
               borderRadius: 10,
               overflowX: "auto",
               WebkitOverflowScrolling: "touch",
               scrollbarWidth: "none",
               msOverflowStyle: "none",
-              boxShadow: "0 4px 16px rgba(0, 0, 0, 0.35)"
+              boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)"
             }} className="no-scrollbar">
               {[
                 { id: "all", label: "All", count: (bets || []).length },
@@ -3287,7 +3219,7 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
                       ? "#ffffff"
                       : tab.highlight
                         ? "var(--gold)"
-                        : "#cbd5e1",
+                        : "var(--text-secondary)",
                     background: activeSubTab === tab.id
                       ? "var(--primary)"
                       : "transparent",
@@ -3308,13 +3240,13 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
                     background: activeSubTab === tab.id
                       ? "#ffffff"
                       : tab.highlight
-                        ? "rgba(212, 175, 55, 0.25)"
-                        : "rgba(255, 255, 255, 0.12)",
+                        ? "rgba(212, 175, 55, 0.2)"
+                        : "var(--border)",
                     color: activeSubTab === tab.id
                       ? "var(--primary)"
                       : tab.highlight
                         ? "var(--gold)"
-                        : "#ffffff",
+                        : "var(--text-primary)",
                     fontWeight: 800
                   }}>
                     {tab.count}

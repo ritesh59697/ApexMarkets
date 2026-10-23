@@ -226,17 +226,16 @@ export function LeaderboardTab({ theme }) {
             <div className="leaderboard-podium" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, marginBottom: 24 }}>
               {podium.map((row, idx) => {
                 const colors = ["#e8b84a", "#a8b0c0", "#c98a5c"];
-                const beamClasses = ["card-beam-gold", "card-beam-cyan", "card-beam-purple"];
                 return (
                   <div
                     key={row.addr}
-                    className={`card-special ${beamClasses[idx]}`}
+                    className="card arc-card"
                     style={{
                       padding: "20px 16px",
                       textAlign: "center",
+                      borderLeft: `3px solid ${colors[idx]}`,
                     }}
                   >
-                    <div className="card__border" />
                     <div style={{ fontSize: 28, marginBottom: 8 }}>{row.medal}</div>
                     <a
                       href={`${ACTIVE_NETWORK.explorerUrl}/address/${row.addr}`}

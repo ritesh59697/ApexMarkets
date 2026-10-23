@@ -1,0 +1,28 @@
+# ApexMarkets Arc Network Demo Narration (68.5s)
+
+[00:00:00,800 --> 00:00:08,672]
+Welcome to ApexMarkets — the premier decentralized prediction platform built natively on Arc Network and settled in USDC.
+
+[00:00:09,000 --> 00:00:16,224]
+Explore live sports and crypto markets with real-time oracle feeds, dynamic odds multipliers, and instant on-chain settlement.
+
+[00:00:16,500 --> 00:00:22,284]
+Every market is transparently backed by automated liquidity pools with sub-second finality on Arc.
+
+[00:00:22,800 --> 00:00:28,416]
+Seamless network switching enables instant connection to Arc Mainnet with near-zero gas fees.
+
+[00:00:29,000 --> 00:00:36,584]
+Meet our autonomous AI Betting Agent — monitoring markets 24/7 and executing disciplined Kelly Criterion sizing.
+
+[00:00:37,000 --> 00:00:43,960]
+Traders can configure custom risk profiles, allocate non-custodial escrow budgets, and stream live execution logs.
+
+[00:00:46,500 --> 00:00:53,268]
+Every prediction is verified on the Arc Explorer — calling smart contracts and minting verifiable receipt tokens.
+
+[00:00:54,500 --> 00:01:00,644]
+Track active prediction slips, live PnL, and claim winnings directly from your unified trader portfolio.
+
+[00:01:01,200 --> 00:01:08,088]
+Compete on the global on-chain leaderboard. Experience the future of intelligent predictions with ApexMarkets on Arc.

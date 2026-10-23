@@ -43,14 +43,14 @@ html {
   --gold: #f5c018;
   --text-wager: var(--primary);
 
-  --bg: #010a18;
-  --bg-card: rgba(4, 18, 48, 0.96);          /* high-contrast solid card bg for dark mode */
-  --bg-card-hover: rgba(5, 24, 62, 0.99);
-  --border: rgba(160, 196, 255, 0.30);       /* brighter border for dark mode contrast */
-  --border-bright: rgba(255, 255, 255, 0.42);
-  --text-primary: #ffffff;
-  --text-secondary: #ddeeff;                 /* was #cfe2ff — brighter secondary text */
-  --text-muted: #9abde8;                     /* was #84a9e3 — more readable muted text */
+  --bg: #030712;
+  --bg-card: rgba(8, 18, 38, 0.98);          /* high-contrast solid card bg for dark mode */
+  --bg-card-hover: rgba(12, 26, 52, 1.0);
+  --border: rgba(255, 255, 255, 0.14);       /* clean high-contrast border */
+  --border-bright: rgba(255, 255, 255, 0.35);
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;                 /* high-contrast readable silver-slate */
+  --text-muted: #94a3b8;                     /* crisp readable slate */
 
   --radius: 14px;
   --radius-sm: 10px;
@@ -295,11 +295,11 @@ body::before {
   background-image: url("/bg-mesh-blue.png");
   background-size: cover;
   background-position: center;
-  opacity: 0.55;
-  filter: saturate(1.1) contrast(1.05);
+  opacity: 0.18;
+  filter: saturate(1.0) contrast(1.0);
 }
 
-/* Midnight Blue overlay — #02060E → #0356C5 */
+/* Midnight Blue overlay — Deep, calm slate base for maximum readability */
 body::after {
   content: "";
   position: fixed;
@@ -307,9 +307,8 @@ body::after {
   z-index: -2;
   pointer-events: none;
   background:
-    linear-gradient(165deg, rgba(2, 6, 14, 0.88) 0%, rgba(3, 86, 197, 0.35) 45%, rgba(2, 6, 14, 0.92) 100%),
-    radial-gradient(ellipse 70% 50% at 20% 80%, rgba(0, 123, 255, 0.2), transparent 55%),
-    radial-gradient(ellipse 55% 40% at 85% 15%, rgba(224, 240, 255, 0.08), transparent 50%);
+    linear-gradient(165deg, rgba(3, 7, 18, 0.96) 0%, rgba(6, 18, 42, 0.88) 50%, rgba(3, 7, 18, 0.98) 100%),
+    radial-gradient(ellipse 70% 50% at 20% 80%, rgba(0, 123, 255, 0.08), transparent 60%);
 }
 
 /* ── Typography Helpers ── */
@@ -346,37 +345,25 @@ body::after {
 
 .text-gradient-primary-purple,
 .text-gradient-arc {
-  background: linear-gradient(135deg, var(--ice) 0%, var(--accent) 50%, var(--royal) 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #60a5fa 55%, #93c5fd 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
 
-/* Subtle halftone dot grid over mesh */
+/* Dot grid turned off to eliminate visual noise behind text */
 .grid-bg {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image:
-    radial-gradient(rgba(0, 188, 255, 0.15) 1.5px, transparent 1.5px),
-    radial-gradient(rgba(0, 188, 255, 0.06) 4px, transparent 4px);
-  background-size: 24px 24px, 72px 72px;
-  mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
-  opacity: 0.55;
+  display: none;
 }
 
-/* ── Glass Card ── */
+/* ── Solid High-Contrast Card ── */
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-top: 1px solid var(--card-border-top);
   border-radius: var(--radius);
-  backdrop-filter: blur(40px) saturate(1.4);
-  -webkit-backdrop-filter: blur(40px) saturate(1.4);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s ease;
   position: relative;
   overflow: hidden;
   box-shadow: var(--card-shadow);
@@ -524,18 +511,18 @@ body::after {
   padding: 8px 16px;
   border-radius: var(--radius-xs);
   border: 1px solid var(--border);
-  background: transparent;
-  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .btn-ghost:hover {
-  border-color: rgba(3, 86, 197, 0.4);
-  color: var(--ice);
-  background: rgba(3, 86, 197, 0.12);
+  border-color: rgba(59, 130, 246, 0.5);
+  color: #ffffff;
+  background: rgba(59, 130, 246, 0.16);
 }
 
 /* ── Badges ── */

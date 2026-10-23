@@ -1041,9 +1041,9 @@ function GlobalBackgroundAnimation({ theme }) {
     const offsetLeft = -(numX * spacing) / 2;
     const offsetTop = -(numZ * spacing) / 2;
 
-    // Harmonized colors for dark and light themes
-    const color1 = new THREE.Color(theme === "dark" ? 0x00d4ff : 0x0356c5); // glowing cyan or royal blue
-    const color2 = new THREE.Color(theme === "dark" ? 0x7928ca : 0x4f46e5); // deep purple or indigo
+    // Subtle, calm colors that do not compete with foreground UI or text
+    const color1 = new THREE.Color(theme === "dark" ? 0x0a2244 : 0xbfdbfe); // deep soft navy
+    const color2 = new THREE.Color(theme === "dark" ? 0x0f172a : 0xc7d2fe); // dark slate
 
     for (let i = 0; i < numParticles; i++) {
       const ix = i % numX;
@@ -1088,12 +1088,12 @@ function GlobalBackgroundAnimation({ theme }) {
     const texture = createCircleTexture();
 
     const material = new THREE.PointsMaterial({
-      size: theme === "dark" ? 3.0 : 2.5,
+      size: theme === "dark" ? 1.4 : 1.2,
       vertexColors: true,
       map: texture,
       transparent: true,
-      opacity: theme === "dark" ? 0.45 : 0.25,
-      blending: theme === "dark" ? THREE.AdditiveBlending : THREE.NormalBlending,
+      opacity: theme === "dark" ? 0.09 : 0.06,
+      blending: THREE.NormalBlending,
       depthWrite: false
     });
 
@@ -2745,7 +2745,7 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
                 </span>
               )}
 
-              <div style={{ width: 1, height: 10, background: "var(--border)", margin: "0 4px" }} />
+              <div style={{ width: 1, height: 12, background: "var(--border)", margin: "0 6px" }} />
 
               <a
                 href={bet.txHash ? `${ACTIVE_NETWORK.explorerUrl}/tx/${bet.txHash}` : `${ACTIVE_NETWORK.explorerUrl}/address/${CONTRACTS.PREDICTION_MARKET}`}
@@ -2754,17 +2754,30 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
-                  gap: 3,
+                  gap: 4,
                   fontSize: 10.5,
-                  color: "var(--text-secondary)",
+                  color: "#cbd5e1",
+                  background: "rgba(255, 255, 255, 0.08)",
+                  border: "1px solid rgba(255, 255, 255, 0.16)",
+                  padding: "3px 8px",
+                  borderRadius: 6,
                   textDecoration: "none",
-                  fontWeight: 600
+                  fontWeight: 700,
+                  transition: "all 0.15s ease"
                 }}
-                onMouseEnter={e => e.currentTarget.style.color = "var(--primary)"}
-                onMouseLeave={e => e.currentTarget.style.color = "var(--text-secondary)"}
+                onMouseEnter={e => {
+                  e.currentTarget.style.color = "#ffffff";
+                  e.currentTarget.style.borderColor = "var(--primary)";
+                  e.currentTarget.style.background = "rgba(41, 121, 255, 0.25)";
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.color = "#cbd5e1";
+                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.16)";
+                  e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
+                }}
                 title={bet.txHash ? "View Bet Transaction on Arc Explorer" : "View Market on Arc Explorer"}
               >
-                {bet.txHash ? `TX: ${bet.txHash.slice(0, 6)}...` : "Explorer"} <ExternalLink size={9} />
+                {bet.txHash ? `TX: ${bet.txHash.slice(0, 6)}...` : "Arc Explorer"} <ExternalLink size={9} />
               </a>
               {bet.claimed && bet.claimTxHash && (
                 <>
@@ -2861,12 +2874,11 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
         padding: "24px 32px",
         background: "var(--bg-card)",
         border: "1px solid var(--border)",
+        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4)",
         borderRadius: 16,
         marginBottom: 8,
         position: "relative",
         overflow: "hidden",
-        backdropFilter: "blur(40px) saturate(1.4)",
-        WebkitBackdropFilter: "blur(40px) saturate(1.4)",
         flexWrap: "wrap",
         gap: 20
       }}>
@@ -3031,9 +3043,7 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
-              textAlign: "left",
-              backdropFilter: "blur(40px) saturate(1.4)",
-              WebkitBackdropFilter: "blur(40px) saturate(1.4)"
+              boxShadow: "0 6px 24px rgba(0, 0, 0, 0.35)"
             }}>
               <div style={{
                 position: "absolute",
@@ -3058,35 +3068,38 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
 
         {/* On-Chain Arc Mainnet Settlement & Recent Transactions */}
         <div style={{
-          background: "rgba(0, 79, 210, 0.05)",
-          border: "1px solid rgba(0, 79, 210, 0.18)",
-          borderRadius: 12,
-          padding: "12px 18px",
-          marginBottom: 20,
+          background: "var(--bg-card)",
+          border: "1px solid var(--border)",
+          boxShadow: "0 8px 30px rgba(0, 0, 0, 0.45)",
+          borderRadius: 14,
+          padding: "16px 20px",
+          marginBottom: 22,
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
           flexWrap: "wrap",
-          gap: 12,
-          backdropFilter: "blur(20px)"
+          gap: 14,
+          position: "relative",
+          zIndex: 2,
         }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
             <div style={{
               display: "inline-flex",
               alignItems: "center",
               gap: 6,
-              background: "rgba(34, 197, 94, 0.1)",
-              border: "1px solid rgba(34, 197, 94, 0.25)",
-              padding: "3px 8px",
-              borderRadius: 6,
-              fontSize: 11,
-              fontWeight: 700,
-              color: "var(--green)"
+              background: "rgba(34, 197, 94, 0.15)",
+              border: "1px solid rgba(34, 197, 94, 0.45)",
+              padding: "4px 10px",
+              borderRadius: 8,
+              fontSize: 11.5,
+              fontWeight: 800,
+              color: "#4ade80",
+              letterSpacing: "0.02em"
             }}>
-              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--green)", boxShadow: "0 0 6px var(--green)" }} />
+              <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#4ade80", boxShadow: "0 0 8px #4ade80" }} />
               Arc Mainnet Verified
             </div>
-            <span style={{ fontSize: 12, color: "var(--text-secondary)", fontWeight: 500 }}>
+            <span style={{ fontSize: 13, color: "var(--text-primary)", fontWeight: 700 }}>
               Recent On-Chain Tx:
             </span>
             <a
@@ -3095,63 +3108,90 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
               rel="noopener noreferrer"
               className="font-mono"
               style={{
-                fontSize: 11.5,
-                color: "var(--primary)",
-                fontWeight: 700,
+                fontSize: 12,
+                color: "#60a5fa",
+                fontWeight: 800,
                 display: "inline-flex",
                 alignItems: "center",
-                gap: 4,
+                gap: 5,
                 textDecoration: "none",
-                background: "rgba(0, 79, 210, 0.08)",
-                padding: "3px 8px",
-                borderRadius: 6,
-                border: "1px solid rgba(0, 79, 210, 0.25)"
+                background: "rgba(59, 130, 246, 0.15)",
+                padding: "4px 10px",
+                borderRadius: 8,
+                border: "1px solid rgba(59, 130, 246, 0.45)"
               }}
-              onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
-              onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = "rgba(59, 130, 246, 0.25)";
+                e.currentTarget.style.color = "#93c5fd";
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = "rgba(59, 130, 246, 0.15)";
+                e.currentTarget.style.color = "#60a5fa";
+              }}
               title="Verified USDC Prediction Transaction on Arc Mainnet"
             >
-              0x7651a8...0963 <ExternalLink size={10} />
+              0x7651a8...0963 <ExternalLink size={11} />
             </a>
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
             <a
               href={`${ACTIVE_NETWORK.explorerUrl}/address/${CONTRACTS.PREDICTION_MARKET}`}
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                fontSize: 11,
-                color: "var(--text-secondary)",
+                fontSize: 11.5,
+                color: "#cbd5e1",
+                background: "rgba(255, 255, 255, 0.06)",
+                border: "1px solid var(--border)",
+                padding: "5px 12px",
+                borderRadius: 8,
                 display: "inline-flex",
                 alignItems: "center",
-                gap: 4,
+                gap: 5,
                 textDecoration: "none",
-                fontWeight: 600
+                fontWeight: 700,
+                transition: "all 0.15s ease"
               }}
-              onMouseEnter={e => e.currentTarget.style.color = "var(--primary)"}
-              onMouseLeave={e => e.currentTarget.style.color = "var(--text-secondary)"}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.12)";
+                e.currentTarget.style.color = "#ffffff";
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.06)";
+                e.currentTarget.style.color = "#cbd5e1";
+              }}
             >
-              Market Contract <ExternalLink size={10} />
+              Market Contract <ExternalLink size={11} />
             </a>
-            <span style={{ color: "var(--border)" }}>•</span>
             <a
               href={`${ACTIVE_NETWORK.explorerUrl}/address/${address}`}
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                fontSize: 11,
-                color: "var(--text-secondary)",
+                fontSize: 11.5,
+                color: "#cbd5e1",
+                background: "rgba(255, 255, 255, 0.06)",
+                border: "1px solid var(--border)",
+                padding: "5px 12px",
+                borderRadius: 8,
                 display: "inline-flex",
                 alignItems: "center",
-                gap: 4,
+                gap: 5,
                 textDecoration: "none",
-                fontWeight: 600
+                fontWeight: 700,
+                transition: "all 0.15s ease"
               }}
-              onMouseEnter={e => e.currentTarget.style.color = "var(--primary)"}
-              onMouseLeave={e => e.currentTarget.style.color = "var(--text-secondary)"}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.12)";
+                e.currentTarget.style.color = "#ffffff";
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.06)";
+                e.currentTarget.style.color = "#cbd5e1";
+              }}
             >
-              Wallet Activity <ExternalLink size={10} />
+              Wallet Activity <ExternalLink size={11} />
             </a>
           </div>
         </div>
@@ -3235,15 +3275,16 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
 
             <div style={{
               display: "flex",
-              gap: 4,
-              background: "rgba(255, 255, 255, 0.03)",
-              border: "1px solid var(--border)",
-              padding: 3,
+              gap: 5,
+              background: "rgba(6, 14, 32, 0.95)",
+              border: "1px solid rgba(255, 255, 255, 0.16)",
+              padding: 4,
               borderRadius: 10,
               overflowX: "auto",
               WebkitOverflowScrolling: "touch",
               scrollbarWidth: "none",
               msOverflowStyle: "none",
+              boxShadow: "0 4px 16px rgba(0, 0, 0, 0.35)"
             }} className="no-scrollbar">
               {[
                 { id: "all", label: "All", count: (bets || []).length },
@@ -3256,43 +3297,43 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
                   onClick={() => setActiveSubTab(tab.id)}
                   className="font-sans"
                   style={{
-                    padding: "6px 12px",
+                    padding: "6px 13px",
                     borderRadius: 7,
-                    fontSize: 11.5,
-                    fontWeight: activeSubTab === tab.id ? 700 : 500,
+                    fontSize: 12,
+                    fontWeight: activeSubTab === tab.id ? 800 : 600,
                     color: activeSubTab === tab.id
-                      ? "var(--text-primary)"
+                      ? "#ffffff"
                       : tab.highlight
                         ? "var(--gold)"
-                        : "var(--text-secondary)",
+                        : "#cbd5e1",
                     background: activeSubTab === tab.id
-                      ? "rgba(255, 255, 255, 0.08)"
+                      ? "var(--primary)"
                       : "transparent",
                     border: "none",
                     cursor: "pointer",
                     display: "flex",
                     alignItems: "center",
-                    gap: 5,
+                    gap: 6,
                     transition: "all 0.15s ease",
                     flexShrink: 0,
                   }}
                 >
                   {tab.label}
                   <span style={{
-                    fontSize: 10,
-                    padding: "1px 5px",
+                    fontSize: 10.5,
+                    padding: "1px 6px",
                     borderRadius: 99,
                     background: activeSubTab === tab.id
-                      ? "var(--primary)"
-                      : tab.highlight
-                        ? "rgba(212, 175, 55, 0.15)"
-                        : "rgba(255, 255, 255, 0.05)",
-                    color: activeSubTab === tab.id
                       ? "#ffffff"
                       : tab.highlight
+                        ? "rgba(212, 175, 55, 0.25)"
+                        : "rgba(255, 255, 255, 0.12)",
+                    color: activeSubTab === tab.id
+                      ? "var(--primary)"
+                      : tab.highlight
                         ? "var(--gold)"
-                        : "var(--text-muted)",
-                    fontWeight: 700
+                        : "#ffffff",
+                    fontWeight: 800
                   }}>
                     {tab.count}
                   </span>

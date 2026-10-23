@@ -2005,12 +2005,13 @@ function AgentTab({ address, signer, matches, usdtBalance, refetchUsdt, onNotif,
     <div className="agent-tab-container font-sans">
 
       {/* ── Left: Config panel ── */}
-      <div className="card agent-config-card" style={{
+      <div className="card-special card-beam-purple agent-config-card" style={{
         padding: "32px",
         display: "flex",
         flexDirection: "column",
         minHeight: 620,
       }}>
+        <div className="card__border" />
         {/* Header */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 32 }}>
           <div>
@@ -2866,27 +2867,17 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
     <div className="portfolio-grid font-sans">
 
       {/* ── User Profile Header Card ── */}
-      <div className="card profile-header-card" style={{
+      <div className="card-special profile-header-card card-beam-cyan" style={{
         gridColumn: "1 / -1",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
         padding: "24px 32px",
-        background: "var(--bg-card)",
-        border: "1px solid var(--border)",
-        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4)",
-        borderRadius: 16,
-        marginBottom: 8,
-        position: "relative",
-        overflow: "hidden",
+        marginBottom: 12,
         flexWrap: "wrap",
         gap: 20
       }}>
-        <div style={{
-          position: "absolute",
-          top: 0, left: 0, right: 0, height: 3,
-          background: "linear-gradient(90deg, var(--primary) 0%, var(--purple) 100%)"
-        }} />
+        <div className="card__border" />
 
         <div style={{ display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
           {/* Avatar */}
@@ -3028,28 +3019,19 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
         {/* Stats */}
         <div className="portfolio-stats-container">
           {[
-            { label: "Total Wagered", value: `$${fmt(totalBetAmount)}`, icon: <Coins size={16} />, color: "var(--primary)", valueColor: "var(--text-wager)" },
-            { label: "Profit / Loss", value: `${totalPnl >= 0 ? "+" : ""}$${fmt(totalPnl)}`, icon: <TrendingUp size={16} />, color: totalPnl >= 0 ? "var(--green)" : "var(--red)", valueColor: totalPnl >= 0 ? "var(--green)" : "var(--red)" },
-            { label: "Claimable", value: `$${fmt(claimable)}`, icon: <Unlock size={16} />, color: "var(--gold)", valueColor: "var(--gold)" },
+            { label: "Total Wagered", value: `$${fmt(totalBetAmount)}`, icon: <Coins size={16} />, color: "var(--primary)", valueColor: "var(--text-wager)", beamClass: "card-beam-cyan" },
+            { label: "Profit / Loss", value: `${totalPnl >= 0 ? "+" : ""}$${fmt(totalPnl)}`, icon: <TrendingUp size={16} />, color: totalPnl >= 0 ? "var(--green)" : "var(--red)", valueColor: totalPnl >= 0 ? "var(--green)" : "var(--red)", beamClass: totalPnl >= 0 ? "card-beam-green" : "card-beam-cyan" },
+            { label: "Claimable", value: `$${fmt(claimable)}`, icon: <Unlock size={16} />, color: "var(--gold)", valueColor: "var(--gold)", beamClass: "card-beam-gold" },
           ].map(s => (
-            <div key={s.label} className="stat-card" style={{
-              background: "var(--bg-card)",
-              border: "1px solid var(--border)",
-              borderTop: "1px solid var(--card-border-top)",
-              borderRadius: 12,
+            <div key={s.label} className={`card-special stat-card ${s.beamClass}`} style={{
+              borderRadius: 14,
               padding: "20px 24px",
-              position: "relative",
-              overflow: "hidden",
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
-              boxShadow: "0 6px 24px rgba(0, 0, 0, 0.35)"
+              textAlign: "left",
             }}>
-              <div style={{
-                position: "absolute",
-                top: 0, left: 0, right: 0, height: 2,
-                background: `linear-gradient(90deg, ${s.color}, transparent)`
-              }} />
+              <div className="card__border" />
               <div className="font-sans" style={{
                 display: "flex",
                 alignItems: "center",
@@ -3067,10 +3049,7 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
         </div>
 
         {/* On-Chain Arc Mainnet Settlement & Recent Transactions */}
-        <div style={{
-          background: "var(--bg-card)",
-          border: "1px solid var(--border)",
-          boxShadow: "0 8px 30px rgba(0, 0, 0, 0.45)",
+        <div className="card-special card-beam-cyan" style={{
           borderRadius: 14,
           padding: "16px 20px",
           marginBottom: 22,
@@ -3082,6 +3061,7 @@ function PortfolioTab({ address, signer, refetchUsdt, onNotif, addNotif, onGoLea
           position: "relative",
           zIndex: 2,
         }}>
+          <div className="card__border" />
           <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
             <div style={{
               display: "inline-flex",
@@ -3446,8 +3426,9 @@ function RankProgressBentoCard({ walletAddress, userBetsState, setTab }) {
   return (
     <div
       onClick={() => setTab("portfolio")}
-      className="sm:col-span-2 bento-card-gradient p-6 rounded-2xl gamified-card text-white flex items-center justify-between shadow-lg relative overflow-hidden cursor-pointer group"
+      className="sm:col-span-2 card-special card-beam-purple p-6 rounded-2xl text-white flex items-center justify-between shadow-lg relative overflow-hidden cursor-pointer group"
     >
+      <div className="card__border" />
       {/* Decorative background glow */}
       <div className="absolute right-0 bottom-0 w-32 h-32 bg-white/5 rounded-full blur-xl pointer-events-none" />
       <div className="space-y-2 z-10 w-full pr-24">

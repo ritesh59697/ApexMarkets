@@ -3618,7 +3618,7 @@ export default function Home() {
                 {showMobileMenu ? <X size={18} /> : <Menu size={18} />}
               </button>
               <div className="arc-nav-mark" style={{ overflow: "hidden", padding: 0, borderRadius: 8 }}>
-                <img src="/logo.jpg" alt="AM Logo" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <img src="/logo.jpg" alt="ApexMarkets Logo" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
               <div>
                 <div className="text-gradient-logo" style={{

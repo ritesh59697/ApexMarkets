@@ -1,7 +1,7 @@
 # ApexMarkets: Decentralized Prediction Markets Built on Arc Network
 
 [![Live App](https://img.shields.io/badge/Live_App-apexx--markets.vercel.app-00d4ff?style=flat-square&logo=vercel)](https://apexx-markets.vercel.app)
-[![Demo Video](https://img.shields.io/badge/Demo_Video-YouTube-ff0000?style=flat-square&logo=youtube)](https://youtu.be/2w3pnFuFAhI)
+[![Demo Video](https://img.shields.io/badge/Demo_Video-YouTube-ff0000?style=flat-square&logo=youtube)](https://youtu.be/GuHPaU_Zze8)
 [![Network](https://img.shields.io/badge/Network-Arc_Mainnet-7b2ff7?style=flat-square)](https://rpc.mainnet.arc.io)
 [![Gas Token](https://img.shields.io/badge/Gas-USDC_Native-00d4ff?style=flat-square)](https://explorer.arc.io)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](./LICENSE)
@@ -15,7 +15,7 @@ ApexMarkets is a fully on-chain, peer-to-peer prediction protocol built on **Arc
 
 - 🌐 **Live DApp**: [https://apexx-markets.vercel.app](https://apexx-markets.vercel.app)
 - ⚡ **Arc Studio Project**: [https://studio.arc.io/app/5442b287-658a-4375-9636-033efdde29d8](https://studio.arc.io/app/5442b287-658a-4375-9636-033efdde29d8)
-- 🎬 **Demo Video**: [Watch Walkthrough on YouTube](https://youtu.be/2w3pnFuFAhI)
+- 🎬 **Demo Video**: [Watch Walkthrough on YouTube](https://youtu.be/GuHPaU_Zze8)
 - 📄 **Whitepaper**: [WHITEPAPER.md](./WHITEPAPER.md)
 
 ---

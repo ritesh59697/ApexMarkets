@@ -1,28 +1,25 @@
-# ApexMarkets Arc Network Demo Narration (68.5s)
+# ApexMarkets Arc Network & Arc Studio Demo Narration (77.2s)
 
-[00:00:00,800 --> 00:00:08,672]
-Welcome to ApexMarkets — the premier decentralized prediction platform built natively on Arc Network and settled in USDC.
+[00:00:01,000 --> 00:00:09,928]
+ApexMarkets: Decentralized prediction protocol built on Arc Network using Arc Studio. Here is our project workspace running the live dev preview.
 
-[00:00:09,000 --> 00:00:16,224]
-Explore live sports and crypto markets with real-time oracle feeds, dynamic odds multipliers, and instant on-chain settlement.
+[00:00:13,000 --> 00:00:22,216]
+Using Arc Studio's onchain AI agent, we scaffolded and tested PredictionMarket.sol & BetReceiptNFT.sol, optimized for native USDC gas.
 
-[00:00:16,500 --> 00:00:22,284]
-Every market is transparently backed by automated liquidity pools with sub-second finality on Arc.
+[00:00:22,500 --> 00:00:28,740]
+Arc Studio executed unit tests and launched our Next.js frontend right inside the container sandbox.
 
-[00:00:22,800 --> 00:00:28,416]
-Seamless network switching enables instant connection to Arc Mainnet with near-zero gas fees.
+[00:00:29,500 --> 00:00:36,412]
+Switching to our live app on Vercel, users access real-time sports & crypto fixtures with dynamic parimutuel pools.
 
-[00:00:29,000 --> 00:00:36,584]
-Meet our autonomous AI Betting Agent — monitoring markets 24/7 and executing disciplined Kelly Criterion sizing.
+[00:00:38,500 --> 00:00:45,076]
+Participants wager natively in USDC, minting an on-chain SVG NFT receipt for every prediction.
 
-[00:00:37,000 --> 00:00:43,960]
-Traders can configure custom risk profiles, allocate non-custodial escrow budgets, and stream live execution logs.
+[00:00:48,500 --> 00:00:54,716]
+Here is our confirmed transaction on Arc Mainnet Explorer, moving real USDC with instant finality.
 
-[00:00:46,500 --> 00:00:53,268]
-Every prediction is verified on the Arc Explorer — calling smart contracts and minting verifiable receipt tokens.
+[00:00:56,500 --> 00:01:04,948]
+In the AI Agent tab, users can escrow USDC to an autonomous agent sizing bets via the Kelly Criterion, with instant revocation rights.
 
-[00:00:54,500 --> 00:01:00,644]
-Track active prediction slips, live PnL, and claim winnings directly from your unified trader portfolio.
-
-[00:01:01,200 --> 00:01:08,088]
-Compete on the global on-chain leaderboard. Experience the future of intelligent predictions with ApexMarkets on Arc.
+[00:01:07,500 --> 00:01:14,388]
+The on-chain leaderboard tracks realized profits transparently. ApexMarkets built on Arc Network. Thanks for watching!
